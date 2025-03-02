@@ -1,4 +1,4 @@
-/// Character look taken directly from https://github.com/s1n7ax/nvim-window-picker/blob/main/lua/window-picker/hints/data/ansi-shadow.lua
+/// Character look taken directly from <https://github.com/s1n7ax/nvim-window-picker/blob/main/lua/window-picker/hints/data/ansi-shadow.lua>
 /// Which is licensed under MIT, this code shall retain that licensing
 ///
 /// MIT License

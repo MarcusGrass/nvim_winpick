@@ -1,7 +1,9 @@
+use ctx::Context;
 use notify::notify_error;
 use nvim_oxi::{api::Window, Object};
 mod buf;
 mod chars;
+mod ctx;
 mod draw;
 mod filter;
 mod geometry;
@@ -26,7 +28,8 @@ pub fn setup(opts: Option<Object>) {
 #[must_use]
 pub fn pick_window(opts: Option<Object>) -> Option<Window> {
     let opts = safe_parse_opts(opts)?;
-    match pick::pick_window(&opts) {
+    let mut ctx = Context::DEFAULT;
+    match pick::pick_window(&opts, &mut ctx) {
         Ok(v) => v,
         Err(e) => {
             notify_error(&format!("[nvim_winpick] failed to pick window {e:#?}"));
@@ -40,7 +43,8 @@ pub fn pick_multiple_windows(opts: Option<Object>) -> Vec<Window> {
     let Some(opts) = safe_parse_opts(opts) else {
         return vec![];
     };
-    match pick::try_pick_multi_window(&opts) {
+    let mut ctx = Context::DEFAULT;
+    match pick::try_pick_multi_window(&opts, &mut ctx) {
         Ok(w) => w,
         Err(e) => {
             notify_error(&format!(
@@ -72,7 +76,8 @@ pub fn pick_focus_window(opts: Option<Object>) {
     let Some(opts) = safe_parse_opts(opts) else {
         return;
     };
-    match pick::simple_operations::pick_focus_window(&opts) {
+    let mut ctx = Context::DEFAULT;
+    match pick::simple_operations::pick_focus_window(&opts, &mut ctx) {
         Ok(()) => {}
         Err(e) => {
             notify_error(&format!(
@@ -86,7 +91,8 @@ pub fn pick_close_window(opts: Option<Object>) {
     let Some(opts) = safe_parse_opts(opts) else {
         return;
     };
-    match pick::simple_operations::pick_close_window(&opts) {
+    let mut ctx = Context::DEFAULT;
+    match pick::simple_operations::pick_close_window(&opts, &mut ctx) {
         Ok(()) => {}
         Err(e) => {
             notify_error(&format!(
@@ -100,7 +106,8 @@ pub fn pick_swap_window(opts: Option<Object>) {
     let Some(opts) = safe_parse_opts(opts) else {
         return;
     };
-    match pick::simple_operations::pick_swap_window(true, &opts) {
+    let mut ctx = Context::DEFAULT;
+    match pick::simple_operations::pick_swap_window(true, &opts, &mut ctx) {
         Ok(()) => {}
         Err(e) => {
             notify_error(&format!(
@@ -124,11 +131,13 @@ pub fn open_split(opts: Option<Object>) {
             return;
         }
     };
+    let mut ctx = Context::DEFAULT;
     if let Err(e) = pick::simple_open::open_simple_split_at_win(
         opts.focus_new,
         opts.vertical,
         &opts.path,
         &opts.opts,
+        &mut ctx,
     ) {
         notify_error(&format!("[nvim_winpick] failed to open split: {e:#?}"));
     }
@@ -149,7 +158,10 @@ pub fn open_over(opts: Option<Object>) {
                 return;
             }
         };
-        if let Err(e) = pick::simple_open::open_over_win(&opts.path, opts.focus_new, &opts.opts) {
+        let mut ctx = Context::DEFAULT;
+        if let Err(e) =
+            pick::simple_open::open_over_win(&opts.path, opts.focus_new, &opts.opts, &mut ctx)
+        {
             notify_error(&format!("[nvim_winpick] failed to open over: {e:#?}"));
         }
     }
@@ -171,11 +183,13 @@ pub fn pick_win_relative(opts: Option<Object>) {
             return;
         }
     };
+    let mut ctx = Context::DEFAULT;
     if let Err(e) = pick::win_relative::pick_win_relative(
         &opts.path,
         opts.focus_new,
         &opts.relative_chars,
         &opts.opts,
+        &mut ctx,
     ) {
         notify_error(&format!("[nvim_winpick] failed to open over: {e:#?}"));
     }

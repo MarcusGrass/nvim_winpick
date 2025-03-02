@@ -1,17 +1,19 @@
-use anyhow::Context;
+use anyhow::Context as _;
 
 use crate::{draw::FloatingLetterDrawer, win::open_split_with};
 
-use super::Opts;
+use crate::ctx::Context;
+use crate::opts::Opts;
 
 pub(crate) fn pick_win_relative(
     path: &str,
     focus_new: bool,
     relative_chars: &str,
     opts: &Opts,
+    ctx: &mut Context,
 ) -> anyhow::Result<()> {
-    let refocus = (!focus_new).then(nvim_oxi::api::get_current_win);
-    let Some(mut win) = crate::pick::pick_window(opts)? else {
+    let refocus = (!focus_new).then(|| ctx.get_current_win());
+    let Some(mut win) = crate::pick::pick_window(opts, ctx)? else {
         return Ok(());
     };
     nvim_oxi::api::set_current_win(&win).context("failed to set focus window to picked window")?;

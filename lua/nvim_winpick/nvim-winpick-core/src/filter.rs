@@ -4,11 +4,11 @@ use nvim_oxi::api::Window;
 use crate::opts::FilterRules;
 
 impl FilterRules {
-    pub(crate) fn filter(&self, win: &Window) -> anyhow::Result<bool> {
-        if self.include_current_win && &nvim_oxi::api::get_current_win() == win {
+    pub(crate) fn filter(&self, target_win: &Window, current_win: &Window) -> anyhow::Result<bool> {
+        if !self.include_current_win && current_win == target_win {
             return Ok(false);
         }
-        let Ok(cfg) = win.get_config() else {
+        let Ok(cfg) = target_win.get_config() else {
             return Ok(false);
         };
         if !self.include_unfocusable_windows && cfg.focusable == Some(false) {
@@ -22,7 +22,7 @@ impl FilterRules {
             || !self.bo.filetype.is_empty()
             || !self.bo.buftype.is_empty()
         {
-            let buf = win.get_buf().context("failed to get window buf")?;
+            let buf = target_win.get_buf().context("failed to get window buf")?;
             if !self.bo.filetype.is_empty() {
                 let ft: Option<String> = buf
                     .get_option("filetype")

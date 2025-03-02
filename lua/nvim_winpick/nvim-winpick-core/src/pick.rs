@@ -1,24 +1,26 @@
 use crate::{
+    ctx::Context,
     draw::{FloatingBigLetterDrawer, FloatingLetterDrawer, PickBetweenWindowsDrawer},
     notify::notify_warn,
     opts::Opts,
     win::get_windows,
 };
-use anyhow::{Context, Result};
+use anyhow::{Context as _, Result};
 use nvim_oxi::api::{opts::SetHighlightOptsBuilder, Window};
 
 pub(crate) mod simple_open;
 pub(crate) mod simple_operations;
 pub(crate) mod win_relative;
 
-pub(crate) fn pick_window(opts: &Opts) -> Result<Option<Window>> {
+pub(crate) fn pick_window(opts: &Opts, ctx: &mut Context) -> Result<Option<Window>> {
     let windows = get_windows(|_| true)?;
     if windows.is_empty() {
         return Ok(None);
     }
     let mut filtered_windows = Vec::with_capacity(windows.len());
+    let current_win = ctx.get_current_win();
     for win in windows {
-        if opts.filter_rules.filter(&win)? {
+        if opts.filter_rules.filter(&win, &current_win)? {
             filtered_windows.push(win);
         }
     }
@@ -55,14 +57,15 @@ where
     Ok(win)
 }
 
-pub(crate) fn try_pick_multi_window(opts: &Opts) -> Result<Vec<Window>> {
+pub(crate) fn try_pick_multi_window(opts: &Opts, ctx: &mut Context) -> Result<Vec<Window>> {
     let windows = get_windows(|_| true)?;
     if windows.is_empty() {
         return Ok(vec![]);
     }
     let mut filtered_windows = Vec::with_capacity(windows.len());
+    let current_win = ctx.get_current_win();
     for win in windows {
-        if opts.filter_rules.filter(&win)? {
+        if opts.filter_rules.filter(&win, &current_win)? {
             filtered_windows.push(win);
         }
     }
