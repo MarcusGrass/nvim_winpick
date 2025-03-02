@@ -99,7 +99,7 @@ which allows picking many windows, highlighting the ones picked. The `commit_cha
 a list of windows. As with the above, mostly useful if doing extensions with your own code. Separated from `pick_window` 
 to make the return-type more predictable.
 
-Show in the main demo when closing multiple windows.
+Shown in the main demo when closing multiple windows.
 
 #### pick_focus_window
 
