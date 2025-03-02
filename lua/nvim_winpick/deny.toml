@@ -1,0 +1,35 @@
+[graph]
+targets = [
+    { triple = "x86_64-unknown-linux-gnu" },
+    { triple = "x86_64-unknown-linux-musl" },
+    { triple = "aarch64-unknown-linux-gnu" },
+    { triple = "aarch64-unknown-linux-musl" },
+]
+
+[advisories]
+ignore = []
+
+[bans]
+multiple-versions = "deny"
+deny = [
+]
+skip = [
+]
+
+[sources]
+allow-git = [
+    "https://github.com/MarcusGrass/nvim-oxi",
+]
+
+[licenses]
+confidence-threshold = 1.0
+allow = [
+    "Apache-2.0",
+    "MIT",
+    "Unicode-3.0",
+]
+exceptions = [
+]
+
+
+
