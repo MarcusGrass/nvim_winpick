@@ -1,0 +1,16 @@
+[package]
+name = "nvim-winpick-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = { workspace = true }
+nvim-oxi = { workspace = true }
+serde = { workspace = true }
+
+[lints]
+workspace = true
+
+[features]
+default = []
+test = []

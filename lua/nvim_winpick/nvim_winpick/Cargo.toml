@@ -1,0 +1,19 @@
+[package]
+name = "nvim_winpick"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+nvim-winpick-core = { workspace = true }
+
+anyhow = { workspace = true }
+nvim-oxi = { workspace = true }
+serde = { workspace = true }
+
+[lints]
+workspace = true
+
+

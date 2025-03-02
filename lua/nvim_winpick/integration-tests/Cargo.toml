@@ -1,0 +1,19 @@
+[package]
+name = "integration-tests"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+nvim-winpick-core = { workspace = true, features = ["test"] }
+
+nvim-oxi = { workspace = true, features = ["test"]}
+
+[build-dependencies]
+nvim-oxi = { workspace = true, features = ["test"]}
+
+
+[lints]
+workspace = true
