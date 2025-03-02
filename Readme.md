@@ -11,11 +11,17 @@ swapping windows, closing windows, and more.
 ![main demo](./assets/snacks-relative-demo.gif)
 
 ### Default configuration
+
+The default configuration is mostly the same as [nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker), but a bit reduced in scope.
+
 ```lua
 return {
     "MarcusGrass/nvim_winpick",
     lazy = false,
     opts = {
+        -- Which chars should be used as visual prompts, no repetitions allowed.
+        -- Some chars are not rendered for the hint 'floating-big-letter', those will 
+        -- cause an if used (same with repetitions).
         selection_chars = "FJDKSLA;CMRUEIWOQP",
         filter_rules = {
             -- If there's only one window to choose after filtering, immediately pick it
@@ -45,8 +51,17 @@ return {
 
             },
         },
+        -- "floating-big-letter" or "floating-letter" is valid here
         hint = "floating-big-letter",
-        multiselect = {},
+
+        -- characters that control multiselect
+        -- both or none must be present
+        multiselect = {
+            -- Not set by default, character that triggers a multiselect (if available on the action)
+            -- trigger_char = "m",
+            -- Not set by default, character that triggers a commit of the selected windows (if available on the action)
+            -- commit_char = "c",
+        },
     }
     end,
 }
@@ -185,7 +200,7 @@ I've found that managing splits, and working with them as I'd like, especially i
 For example, I may want to open a file from a [snacks](https://github.com/folke/snacks.nvim) picker `vsplit` to the right of 
 my current window. 
 
-It's very much possible to do that with just the picker and neovim builtins, but I never managed to get a hang of it.
+It's very much possible to do that with just the picker and neovim builtins, but I never managed to get the hang of it.
 
 [nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker) can help solve that problem, it allows you to 
 interactively pick a window and get the window id. If using a `lua`-config, you can then create everything that this 
@@ -213,7 +228,7 @@ This project is licensed under the Apache 2.0-license [see it here](./LICENSE).
 Which has an MIT-license, you can see that license [here](https://github.com/s1n7ax/nvim-window-picker/blob/main/LICENSE).  
 
 One file is more or less a direct copy of code from [neovim-win-picker](https://github.com/s1n7ax/nvim-window-picker/tree/main), 
-that file is [here](./lua/nvim_winpick/nvim-winpick-core/src/chars.rs), that file also carries the [nvim-win-picker](https://github.com/s1n7ax/nvim-window-picker/tree/main) 
+that file is [here](./lua/nvim_winpick/nvim-winpick-core/src/chars.rs), that file also carries the [nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker/tree/main) 
 MIT-license (also included as a header of that file).  
 
 ## Credits
