@@ -221,8 +221,8 @@ impl FilterRules {
             }
         }
         Ok(Self {
-            autoselect_one: autoselect_one.unwrap_or(true),
-            include_current_win: include_current_win.unwrap_or_default(),
+            autoselect_one: autoselect_one.unwrap_or_else(default_true),
+            include_current_win: include_current_win.unwrap_or_else(default_true),
             include_floating: include_floating.unwrap_or_default(),
             include_unfocusable_windows: include_unfocusable_windows.unwrap_or_default(),
             bo: bo.unwrap_or_default(),
@@ -236,7 +236,7 @@ impl Default for FilterRules {
     fn default() -> Self {
         Self {
             autoselect_one: default_true(),
-            include_current_win: false,
+            include_current_win: default_true(),
             include_floating: default_true(),
             include_unfocusable_windows: false,
             bo: Bo::default(),
