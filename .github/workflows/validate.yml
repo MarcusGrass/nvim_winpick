@@ -1,0 +1,40 @@
+name: "Validate"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+jobs:
+  check_and_test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Neovim v0.10.4
+        uses: rhysd/action-setup-vim@v1
+        with:
+            neovim: true
+            version: v0.10.2
+      - name: Install libluajit (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libluajit-5.1-dev
+      - name: Install libluajit (macOS)
+        if: runner.os == 'macOS'
+        run: brew install luajit
+      - name: Install toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: cargo fmt
+        working-directory: ./lua/nvim_winpick
+        run: cargo fmt --all --check
+      - name: cargo clippy
+        working-directory: ./lua/nvim_winpick
+        run: cargo clippy -- -D warnings
+      - name: cargo test --workspace
+        working-directory: ./lua/nvim_winpick
+        run: cargo test
+

@@ -69,7 +69,7 @@ checksum = "78ca9ab1a0babb1e7d5695e3530886289c18cf2f87ec19a575a0abdce112e3a3"
 [[package]]
 name = "nvim-oxi"
 version = "0.5.1"
-source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=a890ce42d222b12d81834821f6680b99b9c22307#a890ce42d222b12d81834821f6680b99b9c22307"
+source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=4b227faa4c089843169f7362e0541983010691ae#4b227faa4c089843169f7362e0541983010691ae"
 dependencies = [
  "cargo_metadata",
  "nvim-oxi-api",
@@ -82,7 +82,7 @@ dependencies = [
 [[package]]
 name = "nvim-oxi-api"
 version = "0.5.1"
-source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=a890ce42d222b12d81834821f6680b99b9c22307#a890ce42d222b12d81834821f6680b99b9c22307"
+source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=4b227faa4c089843169f7362e0541983010691ae#4b227faa4c089843169f7362e0541983010691ae"
 dependencies = [
  "nvim-oxi-luajit",
  "nvim-oxi-macros",
@@ -95,7 +95,7 @@ dependencies = [
 [[package]]
 name = "nvim-oxi-luajit"
 version = "0.5.1"
-source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=a890ce42d222b12d81834821f6680b99b9c22307#a890ce42d222b12d81834821f6680b99b9c22307"
+source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=4b227faa4c089843169f7362e0541983010691ae#4b227faa4c089843169f7362e0541983010691ae"
 dependencies = [
  "thiserror",
 ]
@@ -103,7 +103,7 @@ dependencies = [
 [[package]]
 name = "nvim-oxi-macros"
 version = "0.5.1"
-source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=a890ce42d222b12d81834821f6680b99b9c22307#a890ce42d222b12d81834821f6680b99b9c22307"
+source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=4b227faa4c089843169f7362e0541983010691ae#4b227faa4c089843169f7362e0541983010691ae"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -113,7 +113,7 @@ dependencies = [
 [[package]]
 name = "nvim-oxi-types"
 version = "0.5.1"
-source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=a890ce42d222b12d81834821f6680b99b9c22307#a890ce42d222b12d81834821f6680b99b9c22307"
+source = "git+https://github.com/MarcusGrass/nvim-oxi?rev=4b227faa4c089843169f7362e0541983010691ae#4b227faa4c089843169f7362e0541983010691ae"
 dependencies = [
  "libc",
  "nvim-oxi-luajit",
