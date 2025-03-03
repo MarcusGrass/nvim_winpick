@@ -1,0 +1,5 @@
+*/**/target/
+assets/
+lua/nvim_winpick/
+.github/
+build.lua
