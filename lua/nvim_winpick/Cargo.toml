@@ -18,10 +18,10 @@ similar_names = "allow"
 
 
 [patch.crates-io]
-nvim-oxi = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "a890ce42d222b12d81834821f6680b99b9c22307"}
-nvim-oxi-types = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "a890ce42d222b12d81834821f6680b99b9c22307"}
-nvim-oxi-api = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "a890ce42d222b12d81834821f6680b99b9c22307"}
-nvim-oxi-macros = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "a890ce42d222b12d81834821f6680b99b9c22307"}
+nvim-oxi = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "4b227faa4c089843169f7362e0541983010691ae"}
+nvim-oxi-types = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "4b227faa4c089843169f7362e0541983010691ae"}
+nvim-oxi-api = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "4b227faa4c089843169f7362e0541983010691ae"}
+nvim-oxi-macros = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "4b227faa4c089843169f7362e0541983010691ae"}
 # nvim-oxi = { path = "../../../nvim-oxi" }
 # nvim-oxi-types = { path = "../../../nvim-oxi/crates/types" }
 # nvim-oxi-api = { path = "../../../nvim-oxi/crates/api" }

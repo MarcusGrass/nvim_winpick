@@ -9,8 +9,6 @@ local run = function(cmd)
 	local output = handle:read("*a")
 	handle:close()
 	local i = 0
-	-- Why can't I get an exit code in a reasonable way?
-	-- Why can't I split a string by line, without finding someone's buggy 12 year old example in a forum?
 	-- Below taken from <https://www.lua.org/pil/20.1.html>, with some modification
 	while true do
 		local next = string.find(output, "\n", i + 1) -- find 'next' newline
