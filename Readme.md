@@ -16,7 +16,12 @@ The default configuration is mostly the same as [nvim-window-picker](https://git
 
 ```lua
 return {
+    -- Default with no branch will build from source
     "MarcusGrass/nvim_winpick",
+    -- If not wanting to build from source, specify your architecture here
+    -- prebuilds are available for `x86_64-unknown-linux-gnu`, `aarch64-unknown-linux-gnu`, and `aarch64-apple-darwin`
+    -- Since I'm using `x86_64-unknown-linux-gnu`, only that one is field-tested.  
+    branch = "x86_64-unknown-linux-gnu",
     lazy = false,
     opts = {
         -- Which chars should be used as visual prompts, no repetitions allowed.
@@ -211,14 +216,7 @@ more complex code than I'd want to write in `lua`.
 
 ## Installation
 
-I'll try to create a branch or tag that will just hold the pre-compiled plugin, which should function on anything 
-with a gcc version at or above what ubuntu-20.04 and ubuntu-22.04 has for x86_64 and aarch64 architectures respectively.  
-
-For now the plugin requires `cargo`, which is easiest installed through [rustup](https://doc.rust-lang.org/cargo/getting-started/installation.html).  
-
-[build.lua](./build.lua) contains the build-script that will run and place the plugin in the correct location. 
-
-If wanting to build it yourself from source, you can set `build = false`, in the plugin spec.
+See [Install.md](./Install.md)
 
 ## License 
 
