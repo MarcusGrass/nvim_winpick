@@ -226,7 +226,7 @@ This project is licensed under the Apache 2.0-license [see it here](./LICENSE).
 Which has an MIT-license, you can see that license [here](https://github.com/s1n7ax/nvim-window-picker/blob/main/LICENSE).  
 
 One file is more or less a direct copy of code from [neovim-win-picker](https://github.com/s1n7ax/nvim-window-picker/tree/main), 
-that file is [here](./lua/nvim_winpick/nvim-winpick-core/src/chars.rs), that file also carries the [nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker/tree/main) 
+that file is [here](./nvim-winpick-core/src/chars.rs), that file also carries the [nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker/tree/main) 
 MIT-license (also included as a header of that file).  
 
 ## Credits
