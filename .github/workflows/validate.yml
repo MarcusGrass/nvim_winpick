@@ -29,12 +29,9 @@ jobs:
       - name: Install toolchain
         uses: dtolnay/rust-toolchain@stable
       - name: cargo fmt
-        working-directory: ./lua/nvim_winpick
         run: cargo fmt --all --check
       - name: cargo clippy
-        working-directory: ./lua/nvim_winpick
         run: cargo clippy -- -D warnings
-      - name: cargo test --workspace
-        working-directory: ./lua/nvim_winpick
+      - name: cargo test
         run: cargo test
 
