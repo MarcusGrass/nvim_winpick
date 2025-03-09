@@ -28,7 +28,7 @@ end
 local dir = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h")
 -- Have to echo $? so that I can parse out the exit code
 local cmd = string.format(
-	"sh -c 'cd %s/lua/nvim_winpick && cargo b -r -p nvim_winpick &> /dev/null && cp target/release/libnvim_winpick.so ../nvim_winpick.so; echo $?'",
+	"sh -c 'cd %s && cargo b -r -p nvim_winpick &> /dev/null && cp target/release/libnvim_winpick.so ./lua/nvim_winpick.so; echo $?'",
 	dir
 )
 local run_err = run(cmd)
