@@ -52,5 +52,10 @@ pub(crate) fn open_split_with(
         }
     };
     nvim_oxi::api::command(&with_pos).context("failed to run split command")?;
+    if let Some(refocus) = keep_focus_at {
+        nvim_oxi::api::set_current_win(refocus).context("failed to refocus old window")?;
+    } else {
+        nvim_oxi::api::set_current_win(window).context("failed to focus new window")?;
+    }
     Ok(())
 }
