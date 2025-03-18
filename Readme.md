@@ -19,9 +19,9 @@ return {
     -- Default with no branch will build from source
     "MarcusGrass/nvim_winpick",
     -- If not wanting to build from source, specify your architecture here
-    -- prebuilds are available for `x86_64-unknown-linux-gnu`, `aarch64-unknown-linux-gnu`, and `aarch64-apple-darwin`
+    -- prebuilds are available for `x86_64-unknown-linux-gnu-latest`, `aarch64-unknown-linux-gnu-latest`, and `aarch64-apple-darwin-latest`
     -- Since I'm using `x86_64-unknown-linux-gnu`, only that one is field-tested.  
-    branch = "x86_64-unknown-linux-gnu",
+    branch = "x86_64-unknown-linux-gnu-latest",
     lazy = false,
     opts = {
         -- Which chars should be used as visual prompts, no repetitions allowed.
