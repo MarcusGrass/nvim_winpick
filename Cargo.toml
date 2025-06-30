@@ -7,7 +7,7 @@ resolver = "2"
 nvim-winpick-core = { path = "./nvim-winpick-core/" }
 # External
 anyhow = "1.0.96"
-nvim-oxi = { version = "0.5.1", features = ["neovim-0-10"] }
+nvim-oxi = { version = "0.6.0", features = ["neovim-0-10", "neovim-0-11"] }
 serde = "1.0.218"
 
 [workspace.lints.clippy]
@@ -15,14 +15,3 @@ pedantic = {priority = -1, level = "warn"}
 module_name_repetitions = "allow"
 missing_errors_doc = "allow"
 similar_names = "allow"
-
-
-[patch.crates-io]
-nvim-oxi = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "4b227faa4c089843169f7362e0541983010691ae"}
-nvim-oxi-types = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "4b227faa4c089843169f7362e0541983010691ae"}
-nvim-oxi-api = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "4b227faa4c089843169f7362e0541983010691ae"}
-nvim-oxi-macros = { git = "https://github.com/MarcusGrass/nvim-oxi", rev = "4b227faa4c089843169f7362e0541983010691ae"}
-# nvim-oxi = { path = "../../../nvim-oxi" }
-# nvim-oxi-types = { path = "../../../nvim-oxi/crates/types" }
-# nvim-oxi-api = { path = "../../../nvim-oxi/crates/api" }
-# nvim-oxi-macros = { path = "../../../nvim-oxi/crates/macros" }
