@@ -147,14 +147,14 @@ where
                 if wins[i] == tgt_win {
                     // Not preserving any order here, could implement but would be slower
                     wins.swap_remove(i);
-                    drawn_win.set_hl(0)?;
+                    drawn_win.set_hl_ns(0)?;
                     was_present = true;
                     break;
                 }
             }
             if !was_present {
                 wins.push(tgt_win);
-                drawn_win.set_hl(ns)?;
+                drawn_win.set_hl_ns(ns)?;
             }
             nvim_oxi::api::command("redraw").context("failed to redraw")?;
         }

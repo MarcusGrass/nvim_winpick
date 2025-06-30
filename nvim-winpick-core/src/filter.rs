@@ -23,6 +23,8 @@ impl FilterRules {
             || !self.bo.buftype.is_empty()
         {
             let buf = target_win.get_buf().context("failed to get window buf")?;
+            // Alternative is umapped in nvim_oxi so far
+            #[allow(deprecated)]
             if !self.bo.filetype.is_empty() {
                 let ft: Option<String> = buf
                     .get_option("filetype")
@@ -33,6 +35,8 @@ impl FilterRules {
                     }
                 }
             }
+            // Alternative is unmapped in nvim_oxi so far
+            #[allow(deprecated)]
             if !self.bo.buftype.is_empty() {
                 let bt: Option<String> = buf
                     .get_option("buftype")
