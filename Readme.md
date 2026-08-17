@@ -67,8 +67,7 @@ return {
             -- Not set by default, character that triggers a commit of the selected windows (if available on the action)
             -- commit_char = "c",
         },
-    }
-    end,
+    },
 }
 ```
 
