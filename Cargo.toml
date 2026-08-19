@@ -7,11 +7,14 @@ resolver = "2"
 nvim-winpick-core = { path = "./nvim-winpick-core/" }
 # External
 anyhow = "1.0.96"
-nvim-oxi = { version = "0.6.0", features = ["neovim-0-10", "neovim-0-11"] }
-serde = "1.0.218"
+nvim-oxi = { version = "0.6.0", features = ["neovim-0-11", "neovim-0-12"] }
+serde = "1.0.228"
 
 [workspace.lints.clippy]
 pedantic = {priority = -1, level = "warn"}
 module_name_repetitions = "allow"
 missing_errors_doc = "allow"
 similar_names = "allow"
+
+[patch.crates-io]
+nvim-oxi = { git = "https://github.com/noib3/nvim-oxi", rev = "d411003cbe660cd32014806b2d1a04651b7d06e0" }
