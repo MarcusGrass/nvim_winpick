@@ -15,11 +15,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - name: Install Neovim v0.10.4
+      - name: Install Neovim v0.12.1
         uses: rhysd/action-setup-vim@v1
         with:
             neovim: true
-            version: v0.10.2
+            version: v0.12.1
       - name: Install libluajit (Linux)
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libluajit-5.1-dev
