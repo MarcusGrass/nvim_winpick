@@ -7,7 +7,7 @@ resolver = "2"
 nvim-winpick-core = { path = "./nvim-winpick-core/" }
 # External
 anyhow = "1.0.96"
-nvim-oxi = { version = "0.6.0", features = ["neovim-0-11", "neovim-0-12"] }
+nvim-oxi = { version = "0.6.0", features = ["neovim-0-12"] }
 serde = "1.0.228"
 
 [workspace.lints.clippy]
